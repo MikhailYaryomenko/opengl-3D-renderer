@@ -149,6 +149,14 @@
     <None Include="res\shaders\frag.glsl" />
     <None Include="res\shaders\vert.glsl" />
   </ItemGroup>
+  <ItemGroup>
+    <Object Include="res\source\crashbandicoot.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\textures\back.png" />
+    <Image Include="res\textures\color_pallete.png" />
+    <Image Include="res\textures\shoes.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
