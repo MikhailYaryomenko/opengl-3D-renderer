@@ -8,6 +8,13 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+// TODO: Currently there is a .dll file that unmanaged by Visual Studio or Git.
+// So repo is not runnable. Fix
+
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h> 
+
 #include "VertexArray.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
@@ -17,6 +24,19 @@
 int main(void)
 {
     Window window(720, 720, "Rotating cube");
+
+    Assimp::Importer importer;
+
+    const aiScene* scene = importer.ReadFile("./res/source/crashbandicoot.obj",
+        aiProcess_CalcTangentSpace |
+        aiProcess_Triangulate |
+        aiProcess_JoinIdenticalVertices |
+        aiProcess_SortByPType);
+
+    if (nullptr == scene) {
+        std::cout << importer.GetErrorString() << std::endl;
+        return -1;
+    }
 
     float positions[] = {
         0.0f, 0.0f, -0.5f, // 0
@@ -56,7 +76,7 @@ int main(void)
         float time = (float)glfwGetTime();
 
         glm::mat4 model = glm::rotate(
-            glm::mat4(5.0f),
+            glm::mat4(1.0f),
             time * 4,
             glm::vec3(1.0f, 8.5f, 2.5f)
         );
@@ -68,7 +88,7 @@ int main(void)
 
         glm::mat4 projection = glm::perspective(
             glm::radians(45.0f),
-            640.0f / 480.0f,
+            720.0f / 720.0f,
             0.1f,
             100.0f
         );
