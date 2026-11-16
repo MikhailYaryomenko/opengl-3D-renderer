@@ -4,18 +4,21 @@
 #include <unordered_map>
 #include "glm/glm.hpp"
 
-class Shader
-{
+class Shader {
 private:
-	unsigned int m_RendererID;
-	std::unordered_map<std::string, int> m_UniformLocationCache;
+    unsigned int m_RendererID;
+    std::unordered_map<std::string, int> m_UniformLocationCache;
+
 public:
-	Shader(std::string vertexShaderFilepath, std::string fragmentShaderFilepath);
-	~Shader();
+    Shader(std::string vertexShaderFilepath, std::string fragmentShaderFilepath);
+    ~Shader();
 
-	void Bind() const;
+    void Bind() const;
+    void Unbind() const;
+    void SetUniformMat4f(const std::string& name, const glm::mat4& matrix);
+    void SetUniformVec3f(const std::string& name, const glm::vec3& vector);
+    void SetUniform1i(const std::string& name, int value);
 
-	void SetUniformMat4f(const std::string& name, const glm::mat4& matrix);
 private:
-	int GetUniformLocation(const std::string& name);
+    int GetUniformLocation(const std::string& name);
 };
