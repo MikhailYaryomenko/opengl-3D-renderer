@@ -2,6 +2,8 @@
 
 #include "Renderer.h"
 
+// TODO: Explain what RendererID is
+
 IndexBuffer::IndexBuffer(const unsigned int* data, size_t count)
     : m_Count(count)
 {
