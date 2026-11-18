@@ -11,6 +11,8 @@
 #include "TextureManager.h"
 #include "Window.h"
 
+// TODO: Make Renderer handle all of the bindings
+
 int main()
 {
     Window window(720, 720, "Textured model");

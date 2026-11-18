@@ -11,6 +11,8 @@
 
 #include "Renderer.h"
 
+// TODO: Understand relationship between Mesh and Texture
+
 namespace {
 std::string ResolveAssetPath(const std::string& filepath)
 {
@@ -203,6 +205,8 @@ Model::Model(const std::string& filepath)
 {
     LoadObj(filepath);
 }
+
+// TODO: This is insane, do something about
 
 std::string Model::ResolveTextureName(const std::string& materialName)
 {

@@ -1,11 +1,12 @@
 ﻿#include "TextureManager.h"
 
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include "stb/stb_image.h"
 
 #include <fstream>
 #include <iostream>
 #include <vector>
+
+// TODO: Question if this class is necessary
 
 namespace {
 std::string ResolveAssetPath(const std::string& path)
